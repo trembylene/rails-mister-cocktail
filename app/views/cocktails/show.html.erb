@@ -10,18 +10,28 @@
 </h3>
 
 <% if @cocktail.doses %>
-  <% @cocktail.doses.each do |dose| %>
-    <p>
-      <%= "#{dose.amount} #{dose.ingredient.name}" %>
-      <%= link_to "", cocktail_dose_path(dose, id: dose.id),
-      :class => "fas fa-trash-alt fa-xs",
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-    </p>
-  <% end %>
-  <% @cocktail.doses.each do |dose| %>
-    <p><%= dose.description %></p>
-  <% end %>
+  <div class="row">
+    <div class="ingredients col-xs-12 col-sm-4 col-sm-offset-4">
+      <% @cocktail.doses.each do |dose| %>
+        <div class="ingredient">
+          <p>
+            <%= "#{dose.amount} #{dose.ingredient.name}" %>
+            <%= link_to "", cocktail_dose_path(dose, id: dose.id),
+            :class => "fas fa-trash-alt fa-xs",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="description col-xs-12 col-sm-4 col-sm-offset-4">
+      <% @cocktail.doses.each do |dose| %>
+        <p><%= dose.description %></p>
+      <% end %>
+    </div>
+  </div>
 <% else %>
   <p>No details yet, please add a new dose of ingredient</p>
 <% end %>

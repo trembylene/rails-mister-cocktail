@@ -7,7 +7,7 @@ end
 
 ruby '2.4.3'
 
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'cloudinary'
 gem 'figaro'
 gem 'bootstrap-sass'

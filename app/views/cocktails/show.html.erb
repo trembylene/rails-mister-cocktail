@@ -9,6 +9,10 @@
   </small>
 </h3>
 
+<% if @cocktail.photo %>
+  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <% if @cocktail.doses %>
   <div class="row">
     <div class="ingredients col-xs-12 col-sm-4 col-sm-offset-4">

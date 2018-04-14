@@ -1,11 +1,53 @@
-<h1>All your cocktails</h1>
-
-<div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <div class="cocktail">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+<div class="container-banner">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-8">
+      <h1 class="text-center">Mister Cocktail</h1>
+      <h2>Indulge your inner hedonist</h2>
+      <%= link_to "Create cocktail", new_cocktail_path, class: "btn btn-warning" %>
     </div>
-  <% end %>
+  </div>
 </div>
-
-<%= link_to "Create new cocktail", new_cocktail_path %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="cocktail">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>test scroll animation</h1>

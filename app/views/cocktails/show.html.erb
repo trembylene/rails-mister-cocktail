@@ -1,58 +1,62 @@
 <div class="cocktails-container">
-  <h2 class="text-center">
-    <%= @cocktail.name %>
-    <small>
-      <%= link_to "", new_cocktail_dose_path(@cocktail), :class => "fas fas fa-flask fa-sm" %>
-      <%= link_to "", cocktail_path(@cocktail),
-        :class => "fas fa-trash-alt fa-xs",
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </small>
-  </h2>
-
-  <div class="row">
-    <div class="ingredients col-xs-12 col-sm-4 col-sm-offset-4">
-      <% if @cocktail.photo %>
-        <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="ingredients col-xs-12 col-sm-4 col-sm-offset-4">
-        <h3>Summary</h3>
-        <%= @cocktail.summary %>
-    </div>
-  </div>
-
-  <% if @cocktail.doses %>
+  <div class="container">
     <div class="row">
-      <div class="ingredients col-xs-12 col-sm-4 col-sm-offset-4">
-        <h4>Ingredients</h4>
-        <% @cocktail.doses.each do |dose| %>
-          <div class="ingredient">
-            <p>
-              <%= "#{dose.amount} #{dose.ingredient.name}" %>
-              <%= link_to "", cocktail_dose_path(dose, id: dose.id),
-              :class => "fas fa-trash-alt fa-xs",
+      <div class="headings text-center col-xs-12"">
+        <h2>
+          <%= @cocktail.name %>
+          <small>
+            <%= link_to "", new_cocktail_dose_path(@cocktail), :class => "fas fas fa-flask" %>
+            <%= link_to "", cocktail_path(@cocktail),
+              :class => "fas fa-trash-alt",
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-          </p>
-          </div>
-        <% end %>
+          </small>
+        </h2>
       </div>
     </div>
-    <div class="row">
-      <div class="description col-xs-12 col-sm-4 col-sm-offset-4">
-        <h4>Instructions</h4>
-        <% @cocktail.doses.each do |dose| %>
-          <p><%= dose.description %></p>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <p>No details yet, please add a new dose of ingredient</p>
-  <% end %>
+  </div>
 
-  <%= link_to "Back", cocktails_path %>
+  <div class="container">
+    <div class="row">
+      <div class="container-details">
+        <div class="col-xs-12 col-sm-6">
+          <% if @cocktail.photo %>
+            <div class="cocktail-photo"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+            </div>
+          <% end %>
+        </div>
+        <% if @cocktail.doses %>
+          <div class="ingredients col-xs-12 col-sm-6">
+            <div class="summary">
+              <h3>Summary</h3>
+              <p><%= @cocktail.summary %></p>
+            </div>
+            <h4>Ingredients</h4>
+            <% @cocktail.doses.each do |dose| %>
+              <div class="ingredient">
+                <p>
+                  <%= "#{dose.amount} #{dose.ingredient.name}" %>
+                  <%= link_to "", cocktail_dose_path(dose, id: dose.id),
+                  :class => "fas fa-trash-alt fa-xs",
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+              </p>
+              </div>
+            <% end %>
+            <div class="ingredients">
+              <br>
+            <h4>Instructions</h4>
+            <% @cocktail.doses.each do |dose| %>
+              <p><%= dose.description %></p>
+            <% end %>
+          </div>
+          </div>
+        <% else %>
+          <p>No details yet, please add a new dose of ingredient</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,19 @@
 <div class="container-banner">
+  <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-8">
-      <h1 class="text-center">Mister Cocktail</h1>
-      <h2>Indulge your inner hedonist</h2>
+    <div class="col-xs-12">
+      <h1 class="title-banner text-center">Mister Cocktail</h1>
+      <h2 class="byline-banner text-center">Indulge your inner hedonist</h2>
       <%= link_to "Create cocktail", new_cocktail_path, class: "btn btn-warning" %>
     </div>
   </div>
 </div>
+</div>
+<div class="container-cocktails">
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="cocktail card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cocktail.photo %>);">
           <div class="card-category">Popular</div>
           <div class="card-description">
@@ -21,4 +24,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>

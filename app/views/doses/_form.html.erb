@@ -1,4 +1,6 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
+<div class="container">
+  <div class="row">
   <div class="form-group col-sm-8 col-sm-offset-2">
     <div class="form-inputs">
       <%= f.association :ingredient %>
@@ -6,7 +8,9 @@
       <%= f.input :description, as: :text, class: "form-control" %>
     </div>
     <div class="form-actions">
-      <%= f.submit "submit", class: "btn btn-primary" %>
+      <%= f.submit "submit", class: "btn btn-warning" %>
     </div>
+  </div>
+  </div>
   </div>
 <% end %>
